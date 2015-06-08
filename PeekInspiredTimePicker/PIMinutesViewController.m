@@ -6,19 +6,19 @@
 //  Copyright (c) 2014 The Timers. All rights reserved.
 //
 
-#import "MinutesViewController.h"
-#import "MinuteLabel.h"
+#import "PIMinutesViewController.h"
+#import "PIMinuteLabel.h"
 
-@interface MinutesViewController ()<UIGestureRecognizerDelegate>
+@interface PIMinutesViewController ()<UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *draggableLabel;
-@property (strong, nonatomic) IBOutletCollection(MinuteLabel) NSArray *minuteLabels;
+@property (strong, nonatomic) IBOutletCollection(PIMinuteLabel) NSArray *minuteLabels;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 
 @end
 
-@implementation MinutesViewController
+@implementation PIMinutesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,7 +48,7 @@
     float minuteUnit = ceil((float) minutes / 5.0);
     minutes = minuteUnit * 5.0;
 
-    for (MinuteLabel *minuteLabel in self.minuteLabels) {
+    for (PIMinuteLabel *minuteLabel in self.minuteLabels) {
         if ([minuteLabel.text isEqualToString:@(minutes).stringValue]){
                 self.draggableLabel.text = minuteLabel.text;
                 self.topConstraint.constant = minuteLabel.center.y - minuteLabel.frame.size.height;
@@ -69,7 +69,7 @@
     [self.draggableLabel.layer setPosition:CGPointMake(self.draggableLabel.center.x, point.y)];
     [self.draggableLabel.layer addAnimation:animation forKey:@"position"];
 
-    for (MinuteLabel *minuteLabel in self.minuteLabels) {
+    for (PIMinuteLabel *minuteLabel in self.minuteLabels) {
 
         if (CGRectContainsPoint(minuteLabel.frame, self.draggableLabel.center)){
 
@@ -93,7 +93,7 @@
     } else if (gesture.state == UIGestureRecognizerStateEnded ||
                gesture.state == UIGestureRecognizerStateFailed ||
                gesture.state == UIGestureRecognizerStateCancelled){
-        for (MinuteLabel *minuteLabel in self.minuteLabels) {
+        for (PIMinuteLabel *minuteLabel in self.minuteLabels) {
             if (CGRectContainsPoint(minuteLabel.frame, self.draggableLabel.center)){
                 self.draggableLabel.text = minuteLabel.text;
                 self.topConstraint.constant = minuteLabel.center.y - minuteLabel.frame.size.height;

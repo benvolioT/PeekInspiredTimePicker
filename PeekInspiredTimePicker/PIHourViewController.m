@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 The Timers. All rights reserved.
 //
 
-#import "HourViewController.h"
-#import "HourLabel.h"
+#import "PIHourViewController.h"
+#import "PIHourLabel.h"
 
-@interface HourViewController () <UIGestureRecognizerDelegate>
+@interface PIHourViewController () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *draggableLabel;
-@property (strong, nonatomic) IBOutletCollection(HourLabel) NSArray *hourLabels;
+@property (strong, nonatomic) IBOutletCollection(PIHourLabel) NSArray *hourLabels;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property NSDateFormatter *dateFormatter;
 
 @end
 
 
-@implementation HourViewController
+@implementation PIHourViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,7 +45,7 @@
     if (hour > 12) {
         NSInteger newValue = hour-12;
 
-        for (HourLabel *hourLabel in self.hourLabels) {
+        for (PIHourLabel *hourLabel in self.hourLabels) {
             NSLog(@"%ld == %ld",(long)hourLabel.text.integerValue, (long)hour);
             if (hourLabel.text.integerValue == newValue){
                 self.draggableLabel.text = hourLabel.text;
@@ -55,7 +55,7 @@
         }
     } else if (hour < 12){
 
-        for (HourLabel *hourLabel in self.hourLabels) {
+        for (PIHourLabel *hourLabel in self.hourLabels) {
             if ([hourLabel.text isEqualToString:@(hour).stringValue]){
                 self.draggableLabel.text = hourLabel.text;
                 self.topLayoutConstraint.constant = hourLabel.center.y - hourLabel.frame.size.height;
@@ -80,7 +80,7 @@
     [self.draggableLabel.layer setPosition:CGPointMake(self.draggableLabel.center.x, point.y)];
     [self.draggableLabel.layer addAnimation:animation forKey:@"position"];
 
-    for (HourLabel *hourLabel in self.hourLabels) {
+    for (PIHourLabel *hourLabel in self.hourLabels) {
 
         if (CGRectContainsPoint(hourLabel.frame, self.draggableLabel.center)){
 
@@ -104,7 +104,7 @@
     } else if (gesture.state == UIGestureRecognizerStateEnded ||
                gesture.state == UIGestureRecognizerStateFailed ||
                gesture.state == UIGestureRecognizerStateCancelled){
-        for (HourLabel *hourLabel in self.hourLabels) {
+        for (PIHourLabel *hourLabel in self.hourLabels) {
             if (CGRectContainsPoint(hourLabel.frame, self.draggableLabel.center)){
                 self.draggableLabel.text = hourLabel.text;
                 self.draggableLabel.center = hourLabel.center;

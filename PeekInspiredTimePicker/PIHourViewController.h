@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol HourViewDelegate
+@protocol PIHourViewDelegate
 
 -(void)hourSelected:(NSString *)string;
 
 @end
 
-@interface HourViewController : UIViewController
+@interface PIHourViewController : UIViewController
 
-@property id<HourViewDelegate> delegate;
+@property id<PIHourViewDelegate> delegate;
 
 @end

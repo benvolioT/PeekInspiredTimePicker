@@ -1,5 +1,5 @@
 //
-//  HourLabel.h
+//  MinuteLabel.h
 //  PeekInspiredTimePicker
 //
 //  Created by Adam Cooper on 11/24/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HourLabel : UILabel
+@interface PIMinuteLabel : UILabel
 
 -(void)backgroundColorAnimationFromColor:(UIColor *)startColor toColor:(UIColor *)destColor clearAnimationsFirst:(BOOL)reset;
 

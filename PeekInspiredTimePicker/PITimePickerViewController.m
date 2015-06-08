@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "MinutesViewController.h"
-#import "HourViewController.h"
+#import "PITimePickerViewController.h"
+#import "PIMinutesViewController.h"
+#import "PIHourViewController.h"
 
 
-@interface ViewController () <UIGestureRecognizerDelegate, MinuteViewDelegate, HourViewDelegate>
+@interface PITimePickerViewController () <UIGestureRecognizerDelegate, PIMinuteViewDelegate, PIHourViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
 @property (weak, nonatomic) IBOutlet UIButton *timeOfDaySwitch;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ViewController
+@implementation PITimePickerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,10 +57,10 @@
 }
 
 -  (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-        MinutesViewController *minutesViewController = segue.destinationViewController;
+        PIMinutesViewController *minutesViewController = segue.destinationViewController;
         minutesViewController.delegate = self;
 
-        HourViewController *hoursViewController = segue.destinationViewController;
+        PIHourViewController *hoursViewController = segue.destinationViewController;
         hoursViewController.delegate = self;
 
 }

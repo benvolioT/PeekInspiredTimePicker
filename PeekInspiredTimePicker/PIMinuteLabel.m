@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "MinuteLabel.h"
+#import "PIMinuteLabel.h"
 
-@implementation MinuteLabel
+@implementation PIMinuteLabel
 
 -(void)drawTextInRect:(CGRect)rect {
     UIEdgeInsets insets = {0, 20, 0, 0};

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "HourLabel.h"
+#import "PIHourLabel.h"
 
-@implementation HourLabel
+@implementation PIHourLabel
 
 -(void)drawTextInRect:(CGRect)rect{
     UIEdgeInsets insets = {0, 0, 0, 20};

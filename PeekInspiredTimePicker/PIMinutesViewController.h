@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MinuteViewDelegate
+@protocol PIMinuteViewDelegate
 
 -(void)minuteSelected:(NSString *)string;
 
 @end
 
-@interface MinutesViewController : UIViewController
+@interface PIMinutesViewController : UIViewController
 
-@property id<MinuteViewDelegate> delegate;
+@property id<PIMinuteViewDelegate> delegate;
 
 @end
